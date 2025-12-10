@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  /* Ensure color tokens exist for utility classes like bg-primary, text-accent, etc. */
+  --color-primary: #433c35;
+  --color-text-secondary: #fff7e9;
+  --color-background: #e8e0d2;
+  --color-accent: #8c4630;
+  --color-subtle: #c3af9f;
+  --color-accent-dark: #7f3e2c;
+  --color-card: #f9f7f3;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Alpine.js x-cloak */
+[x-cloak] { display: none !important; }
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    border-color: var(--color-subtle) !important;
+    accent-color: var(--color-accent);
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--color-accent-dark) !important;
+    border-color: var(--color-accent) !important;
+}
+
+/* Required field indicators - red star */
+/* For labels that are directly followed by a required input/textarea/select */
+label:has(+ input[required])::after,
+label:has(+ textarea[required])::after,
+label:has(+ select[required])::after,
+label:has(+ * input[required])::after,
+label:has(+ * textarea[required])::after {
+    content: ' *';
+    color: #dc2626;
+    font-weight: bold;
+}
+
+/* For paragraphs or typography components acting as labels */
+p:has(+ * input[required])::after,
+p:has(+ * textarea[required])::after,
+span:has(+ * input[required])::after,
+span:has(+ * textarea[required])::after {
+    content: ' *';
+    color: #dc2626;
+    font-weight: bold;
+}
